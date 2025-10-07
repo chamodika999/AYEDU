@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYEDU - Educational File Sharing Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>AYEDU</h1>
+        <p>Educational File Sharing Platform for Sri Lankan A/L Technology Students</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">AYEDU</a>
+            <ul class="nav-list">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="et.html"><i class="fas fa-cogs"></i> Engineering Technology</a></li>
+                <li><a href="sft.html"><i class="fas fa-code"></i> Software Technology</a></li>
+                <li><a href="ict.html"><i class="fas fa-computer"></i> ICT</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Search files..." id="searchInput">
+                    <button class="btn" onclick="searchFiles()"><i class="fas fa-search"></i></button>
+                </div>
+                <a href="login.html" class="btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Welcome Section -->
+        <div class="card fade-in-up">
+            <div class="card-header">
+                <i class="fas fa-graduation-cap"></i> Welcome to AYEDU
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Your Gateway to A/L Technology Resources</h2>
+                <p class="card-text">
+                    AYEDU is a comprehensive educational file sharing platform designed specifically for Sri Lankan Advanced Level Technology students. 
+                    Access study materials, past papers, notes, and resources for Engineering Technology (ET), Software Technology (SFT), 
+                    and Information and Communication Technology (ICT) subjects.
+                </p>
+                <p class="card-text">
+                    Our platform provides organized, high-quality educational content to help you excel in your studies and prepare for examinations. 
+                    Join thousands of students who trust AYEDU for their academic success.
+                </p>
+            </div>
+        </div>
+
+        <!-- Subject Cards -->
+        <div class="subject-grid">
+            <!-- Engineering Technology Card -->
+            <div class="subject-card et" onclick="window.location.href='et.html'">
+                <div class="subject-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="subject-title">Engineering Technology (ET)</h3>
+                <p class="subject-description">
+                    Comprehensive resources for Engineering Technology including mechanical systems, 
+                    electrical circuits, materials science, and engineering drawing materials.
+                </p>
+            </div>
+
+            <!-- Software Technology Card -->
+            <div class="subject-card sft" onclick="window.location.href='sft.html'">
+                <div class="subject-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="subject-title">Software Technology (SFT)</h3>
+                <p class="subject-description">
+                    Programming tutorials, software development guides, database management, 
+                    and system analysis resources for aspiring software developers.
+                </p>
+            </div>
+
+            <!-- ICT Card -->
+            <div class="subject-card ict" onclick="window.location.href='ict.html'">
+                <div class="subject-icon">
+                    <i class="fas fa-computer"></i>
+                </div>
+                <h3 class="subject-title">Information & Communication Technology (ICT)</h3>
+                <p class="subject-description">
+                    Computer networks, digital communication, information systems, 
+                    and emerging technology resources for the digital age.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-star"></i> Platform Features
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><i class="fas fa-download"></i> Easy Downloads</h4>
+                                <p>Quick and secure file downloads with organized categorization by subject and topic.</p>
+                                
+                                <h4><i class="fas fa-search"></i> Smart Search</h4>
+                                <p>Find exactly what you need with our intelligent search functionality across all subjects.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h4><i class="fas fa-mobile-alt"></i> Mobile Friendly</h4>
+                                <p>Access your study materials anywhere, anytime with our responsive mobile design.</p>
+                                
+                                <h4><i class="fas fa-shield-alt"></i> Secure Platform</h4>
+                                <p>Your data and downloads are protected with industry-standard security measures.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line"></i> Quick Stats
+                    </div>
+                    <div class="card-body">
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Study Materials</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>1000+</h3>
+                            <p>Active Students</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>3</h3>
+                            <p>Subject Areas</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>24/7</h3>
+                            <p>Platform Access</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Updates -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-clock"></i> Recent Updates
+            </div>
+            <div class="card-body">
+                <div class="file-list">
+                    <div class="file-item">
+                        <div class="file-icon" style="color: #e74c3c;">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="file-info">
+                            <div class="file-name">ET - Mechanical Systems Past Paper 2024</div>
+                            <div class="file-meta">Added 2 days ago • 2.3 MB</div>
+                        </div>
+                        <button class="file-download">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                    
+                    <div class="file-item">
+                        <div class="file-icon" style="color: #2ecc71;">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <div class="file-info">
+                            <div class="file-name">SFT - Java Programming Tutorial Series</div>
+                            <div class="file-meta">Added 3 days ago • 15.7 MB</div>
+                        </div>
+                        <button class="file-download">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                    
+                    <div class="file-item">
+                        <div class="file-icon" style="color: #f39c12;">
+                            <i class="fas fa-file-powerpoint"></i>
+                        </div>
+                        <div class="file-info">
+                            <div class="file-name">ICT - Network Security Presentation</div>
+                            <div class="file-meta">Added 5 days ago • 8.9 MB</div>
+                        </div>
+                        <button class="file-download">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 AYEDU - Educational File Sharing Platform</p>
+        <p>Empowering Sri Lankan A/L Technology Students</p>
+        <div class="footer-links">
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality
+        function searchFiles() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm.trim() === '') {
+                alert('Please enter a search term');
+                return;
+            }
+            
+            // Simple search simulation - in a real application, this would query a backend
+            alert(`Searching for: "${searchTerm}"\n\nThis would redirect to search results page in a full implementation.`);
+        }
+
+        // Enter key search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchFiles();
+            }
+        });
+
+        // Add smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add fade-in animation to cards
+            const cards = document.querySelectorAll('.card, .subject-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in-up');
+                }, index * 100);
+            });
+        });
+
+        // Subject card hover effects
+        document.querySelectorAll('.subject-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+
+    <style>
+        .stat-item {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+        
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .stat-item p {
+            color: #666;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .col-md-6 {
+            flex: 1;
+            padding: 0 15px;
+        }
+        
+        .col-md-6 h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .col-md-6 h4 i {
+            margin-right: 8px;
+            color: #3498db;
+        }
+        
+        .col-md-6 p {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</body>
+</html>

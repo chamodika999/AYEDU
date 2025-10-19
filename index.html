@@ -4,142 +4,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AYEDU - Educational File Sharing Platform</title>
-    <!-- Tailwind CSS CDN for modern, responsive styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>AYEDU - AI මෙවලම් එකතුව</title>
+    <!-- මුල් පිටුවේ තිබූ Stylesheet -->
+    <!-- <link rel="stylesheet" href="styles.css"> - මෙම ගොනුව සපයා නැත, නමුත් අභිරුචි CSS පහතින් ඇත. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- නව AI මෙවලම් සඳහා Tailwind CSS CDN එකතු කිරීම -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- මුල් පිටුවේ තිබූ Custom Styles -->
     <style>
-        /* Custom styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-        }
-
-        .header {
-            background-color: #0d47a1;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar {
-            background-color: #1565c0;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .nav-list {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .nav-list a {
-            color: white;
-            text-decoration: none;
-            padding: 15px 20px;
-            display: block;
-            transition: background-color 0.2s;
-        }
-
-        .nav-list a:hover {
-            background-color: #1e88e5;
-        }
-
-        .main-content {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
         
-        /* AI Feature Grid Styling */
-        .ai-feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 12px;
+        .stat-item {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .stat-item p {
+            color: #666;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .col-md-6 {
+            flex: 1;
+            padding: 0 15px;
+        }
+        
+        .col-md-6 h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .col-md-6 ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .col-md-6 ul li {
+            background-color: #ecf0f1;
+            padding: 8px 15px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        
+        .col-md-6 ul li:hover {
+            transform: translateX(5px);
+            background-color: #dce0e1;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
             padding: 20px 0;
         }
-
-        .ai-tool-btn {
-            background-color: #e3f2fd;
-            color: #1565c0;
-            border: 2px solid #90caf9;
-            padding: 15px 10px;
-            border-radius: 8px;
+        
+        .subject-card {
+            background-color: white;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(33% - 30px);
+            min-width: 280px;
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.875rem;
-            font-weight: 600;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
         }
-
-        .ai-tool-btn:hover {
-            background-color: #90caf9;
-            color: #0d47a1;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-
-        .ai-tool-btn i {
+        
+        .subject-card i {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        .subject-card h3 {
+            color: #2c3e50;
             font-size: 1.5rem;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: white;
+            padding: 24px 0;
+            box-shadow: 0 6px 15px -3px rgba(0, 0, 0, 0.2);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            text-align: center;
+        }
+        
+        .navbar {
+            background-color: #2c3e50;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Modal Styles */
+        /* Modal specific styles */
         .modal {
-            display: none; 
+            display: none; /* Hidden by default */
             position: fixed;
-            z-index: 100;
+            z-index: 1000; /* High z-index to overlay everything */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
             backdrop-filter: blur(5px);
         }
-
-        .modal-content {
-            background-color: #ffffff;
-            margin: 3% auto; /* Adjusted margin */
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            width: 95%;
-            max-width: 900px; /* Increased max-width for better layout differentiation */
-            animation-name: animatetop;
-            animation-duration: 0.4s
+        .modal-content-custom {
+            background-color: #fefefe;
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 24px;
+            border-radius: 16px;
+            width: 95%; /* Responsive width */
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
         }
 
-        @keyframes animatetop {
-            from {top: -300px; opacity: 0}
-            to {top: 0; opacity: 1}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .close-btn {
             color: #aaa;
-            float: right;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
+            transition: color 0.2s;
         }
 
         .close-btn:hover,
@@ -149,673 +172,560 @@
             cursor: pointer;
         }
 
-        .modal-process-btn {
-            background-color: #2ecc71;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.2s;
-            font-weight: bold;
+        /* Chat Specific Styling */
+        .chat-message {
+            max-width: 85%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            word-wrap: break-word;
+            font-size: 0.95rem;
         }
-
-        .modal-process-btn:hover {
-            background-color: #27ae60;
-            transform: translateY(-1px);
+        .user-message {
+            background-color: #dbeafe; /* Blue-100 */
+            color: #1e40af; /* Blue-800 */
+            align-self: flex-end;
+            margin-left: auto; /* Push to right */
+            border-bottom-right-radius: 4px;
         }
-
-        #spinner {
-            margin-right: 10px;
+        .ai-message {
+            background-color: #e5e7eb; /* Gray-200 */
+            color: #374151; /* Gray-700 */
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            
         }
-        
-        .hidden {
-            display: none !important;
-        }
-
-        .alert-warning {
-            padding: 15px;
-            background-color: #fff3cd;
-            border: 1px solid #ffeeba;
-            color: #856404;
-            border-radius: 6px;
-            text-align: left;
-            font-weight: 500;
+        .ai-tool-btn {
+            min-height: 100px; /* Ensure visual height consistency */
         }
         
-        /* Specific Tool Styles for unique appearance */
-        .code-input-area {
-            font-family: 'Consolas', 'Courier New', monospace;
-            background-color: #1e1e1e;
-            color: #d4d4d4;
-            border: 1px solid #000;
-        }
-        
-        .code-output-area {
-            background-color: #2d2d30;
-            color: #9cdcfe;
-            border-left: 4px solid #007acc;
-            white-space: pre-wrap;
-        }
-
-        /* Responsive adjustments */
-        @media screen and (max-width: 600px) {
-            .ai-feature-grid {
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 8px;
-            }
-            .ai-tool-btn {
-                font-size: 0.75rem;
-                padding: 6px 8px;
-            }
-            .modal-content {
-                width: 95%;
-                margin: 20px auto;
+        /* Responsive adjustments for the tool grid */
+        @media (max-width: 768px) {
+            #aiToolButtons {
+                grid-template-columns: repeat(3, 1fr);
             }
             .nav-list {
-                display: none; /* Hide nav links on small screens */
+                display: none; /* Hide for mobile simplicity */
             }
-            .translate-grid {
-                grid-template-columns: 1fr !important;
-                gap: 10px !important;
+            .nav-container {
+                flex-wrap: wrap;
             }
-        }
-        @media screen and (min-width: 768px) {
-            .ai-feature-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .translate-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
+            .nav-right {
+                width: 100%;
+                margin-top: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
         }
+
     </style>
 </head>
-<body>
+<body class="bg-gray-100">
     <!-- Header Section -->
     <div class="header">
-        <h1 class="text-4xl font-bold">AYEDU</h1>
-        <p class="mt-1 text-sm">ශ්‍රී ලංකාවේ A/L තාක්ෂණික සිසුන් සඳහා අධ්‍යාපනික ගොනු හුවමාරු වේදිකාව</p>
+        <h1 class="text-4xl font-extrabold">AYEDU</h1>
+        <p class="mt-2 text-lg">ශ්‍රී ලංකාවේ උසස් පෙළ තාක්ෂණවේදී සිසුන් සඳහා අධ්‍යාපන ගොනු බෙදාගැනීමේ වේදිකාව</p>
     </div>
 
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo text-xl font-semibold text-white">AYEDU</a>
-            <ul class="nav-list">
-                <li><a href="index.html"><i class="fas fa-home"></i> මුල් පිටුව</a></li>
-                <li><a href="et.html"><i class="fas fa-cogs"></i> ඉංජිනේරු තාක්ෂණය</a></li>
-                <li><a href="sft.html"><i class="fas fa-code"></i> මෘදුකාංග තාක්ෂණය</a></li>
-                <li><a href="ict.html"><i class="fas fa-computer"></i> තොරතුරු තාක්ෂණය</a></li>
+        <div class="nav-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-3">
+            <a href="index.html" class="logo text-white text-2xl font-bold">AYEDU</a>
+            <!-- Desktop Navigation Links -->
+            <ul class="nav-list hidden sm:flex space-x-6">
+                <li><a href="index.html" class="text-white hover:text-blue-200 transition duration-300 font-medium"><i class="fas fa-home"></i> මුල් පිටුව</a></li>
+                <li><a href="et.html" class="text-white hover:text-blue-200 transition duration-300 font-medium"><i class="fas fa-cogs"></i> ඉංජිනේරු තාක්ෂණවේදය</a></li>
+                <li><a href="sft.html" class="text-white hover:text-blue-200 transition duration-300 font-medium"><i class="fas fa-code"></i> මෘදුකාංග තාක්ෂණවේදය</a></li>
+                <li><a href="ict.html" class="text-white hover:text-blue-200 transition duration-300 font-medium"><i class="fas fa-computer"></i> තොරතුරු තාක්ෂණය</a></li>
             </ul>
-            <div class="nav-right">
-                <div class="search-box">
-                    <input type="text" placeholder="සොයන්න..." class="px-3 py-1 rounded-md border border-gray-300 text-gray-800">
-                    <button class="bg-white text-blue-800 px-3 py-1 rounded-md ml-2"><i class="fas fa-search"></i></button>
+            <div class="nav-right flex items-center">
+                <div class="search-box flex">
+                    <input type="text" placeholder="ගොනු සොයන්න..." id="searchInput" class="px-3 py-1 rounded-l-md focus:outline-none text-gray-800">
+                    <button class="btn bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-r-md" onclick="searchFiles()"><i class="fas fa-search"></i></button>
                 </div>
+                <!-- Login/Profile Link -->
+                <a href="login.html" class="login-link ml-4 text-white hover:text-blue-200 transition duration-300 font-medium hidden sm:inline-block"><i class="fas fa-user-circle"></i> පිවිසෙන්න</a>
+                <!-- Mobile Menu Button (Placeholder - Actual implementation would require more JS) -->
+                <button class="text-white sm:hidden ml-4 text-xl"><i class="fas fa-bars"></i></button>
             </div>
         </div>
     </nav>
 
     <!-- Main Content Area -->
-    <div class="main-content">
-        <h2 class="text-2xl font-semibold border-b pb-2 mb-4 text-blue-700">AI මෙවලම් 100 (AI 100 Tools)</h2>
-        <p class="text-gray-600 mb-6">ඔබේ අධ්‍යාපනික අවශ්‍යතා සඳහා AI මෙවලම් 100ක්. සියල්ලම Gemini API මගින් බලගන්වා ඇත. **එක් එක් මෙවලමට ආවේණික පිරිසැලසුමක් ඇත.**</p>
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-8">
 
-        <!-- AI Feature Grid (Will be populated by JavaScript) -->
-        <div id="aiFeatureGrid" class="ai-feature-grid">
-            <!-- AI tool buttons will be inserted here -->
-        </div>
+        <!-- AI Tools Section (New Section) -->
+        <section id="ai-tools" class="mb-12 p-6 bg-white rounded-xl shadow-2xl">
+            <h2 class="text-3xl font-extrabold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2 flex items-center">
+                <i class="fas fa-rocket mr-3"></i> AYEDU AI HUB
+            </h2>
+            <p class="text-gray-600 mb-8 text-lg">ඔබගේ අධ්‍යාපන කටයුතු පහසු කර ගැනීමට නිර්මාණය කරන ලද නවීනතම AI මෙවලම් මෙතැනින් තෝරන්න. (අත්හදා බැලීමේ සංස්කරණය)</p>
+            
+            <div id="aiToolButtons" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+                <!-- AI tool buttons will be rendered here by JavaScript -->
+            </div>
+        </section>
 
-        <h3 class="text-xl font-semibold mt-8 mb-4 text-blue-700">නවතම සම්පත්</h3>
-        <div class="alert-warning">
-            වැදගත්: මෙම කොටස ගොනු උඩුගත කිරීම් සහ දත්ත ගබඩා කිරීමේ (Firestore) කාර්යයන් සඳහා වෙන් කර ඇත. එම ක්‍රියාකාරීත්වය පද්ධතිය තුළ සකසා නොමැති බැවින් මෙහි තාවකාලික අනතුරු ඇඟවීමක් පෙන්වනු ලැබේ.
-        </div>
-        
+        <!-- Existing Statistics Section -->
+        <section id="statistics" class="mb-12">
+            <h2 class="text-3xl font-extrabold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2 flex items-center">
+                <i class="fas fa-chart-bar mr-3"></i> වේදිකාවේ සංඛ්‍යාලේඛන
+            </h2>
+            <div class="flex flex-wrap -mx-3">
+                <div class="w-full md:w-1/3 px-3">
+                    <div class="stat-item">
+                        <h3 id="filesCount">150+</h3>
+                        <p>ගොනු ප්‍රමාණය</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 px-3">
+                    <div class="stat-item">
+                        <h3 id="usersCount">2.5K+</h3>
+                        <p>ලියාපදිංචි පරිශීලකයින්</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 px-3">
+                    <div class="stat-item">
+                        <h3 id="downloadsCount">10K+</h3>
+                        <p>බාගත කිරීම්</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Existing Subjects Section -->
+        <section id="subjects" class="mb-12">
+            <h2 class="text-3xl font-extrabold text-blue-700 mb-6 border-b-2 border-blue-200 pb-2 flex items-center">
+                <i class="fas fa-book-open mr-3"></i> ප්‍රධාන විෂයන්
+            </h2>
+            <div class="flex flex-wrap justify-center -m-4">
+                <div class="p-4 w-full sm:w-1/2 lg:w-1/3">
+                    <div class="subject-card" onclick="window.location.href='et.html'">
+                        <i class="fas fa-cogs"></i>
+                        <h3>ඉංජිනේරු තාක්ෂණවේදය (E.T)</h3>
+                        <p>ප්‍රායෝගික පුහුණුවට වැදගත් වන ගොනු.</p>
+                    </div>
+                </div>
+                <div class="p-4 w-full sm:w-1/2 lg:w-1/3">
+                    <div class="subject-card" onclick="window.location.href='sft.html'">
+                        <i class="fas fa-code"></i>
+                        <h3>මෘදුකාංග තාක්ෂණවේදය (S.F.T)</h3>
+                        <p>කේතකරණය සහ ඇල්ගොරිතම ගොනු.</p>
+                    </div>
+                </div>
+                <div class="p-4 w-full sm:w-1/2 lg:w-1/3">
+                    <div class="subject-card" onclick="window.location.href='ict.html'">
+                        <i class="fas fa-computer"></i>
+                        <h3>තොරතුරු තාක්ෂණය (I.C.T)</h3>
+                        <p>තොරතුරු පද්ධති සහ දත්ත ගබඩා ගොනු.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Existing Latest Uploads / Popular Files Section -->
+        <section id="content-focus" class="flex flex-wrap -mx-3 mb-10">
+            <div class="col-md-6 w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <div class="bg-white p-6 rounded-xl shadow-lg h-full">
+                    <h4 class="text-xl font-semibold text-gray-800 border-b pb-2 mb-4"><i class="fas fa-upload mr-2 text-blue-500"></i> අලුතින් එක් කළ ගොනු</h4>
+                    <ul>
+                        <li>E.T - Power Generation (Lec 5)</li>
+                        <li>S.F.T - Python OOP Practice Sheet</li>
+                        <li>I.C.T - Database Normalization Guide</li>
+                        <li>E.T - Circuit Diagrams for Labs</li>
+                        <li>I.C.T - Web Development Basics</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 w-full md:w-1/2 px-3">
+                <div class="bg-white p-6 rounded-xl shadow-lg h-full">
+                    <h4 class="text-xl font-semibold text-gray-800 border-b pb-2 mb-4"><i class="fas fa-star mr-2 text-yellow-500"></i> ජනප්‍රිය ගොනු</h4>
+                    <ul>
+                        <li>E.T - Model Papers 2024</li>
+                        <li>S.F.T - Past Papers Collection (2010-2023)</li>
+                        <li>I.C.T - Revision Notes for Unit 3</li>
+                        <li>General - Time Management for A/L</li>
+                        <li>S.F.T - C++ Data Structures Tutorial</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- AI Tool Modal (Popup Window) -->
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8">
+        <p class="text-sm">&copy; 2024 AYEDU. සියලු හිමිකම් ඇවිරිණි.</p>
+        <div class="social-links mt-2">
+            <a href="#" class="text-gray-400 hover:text-white mx-2 transition duration-300"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white mx-2 transition duration-300"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white mx-2 transition duration-300"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+
+    <!-- AI Tool Modal Structure -->
     <div id="aiToolModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="document.getElementById('aiToolModal').style.display='none'">&times;</span>
-            <h3 id="modalTitle" class="text-2xl font-bold mb-4 text-blue-700">AI මෙවලම්</h3>
+        <div class="modal-content-custom bg-white p-6 rounded-xl shadow-2xl transition duration-500">
+            <div class="flex justify-between items-center border-b pb-3 mb-4">
+                <h2 id="modalTitle" class="text-2xl font-bold text-gray-800">AI මෙවලම</h2>
+                <span class="close-btn text-gray-500 hover:text-gray-800" onclick="document.getElementById('aiToolModal').style.display='none'">&times;</span>
+            </div>
             
-            <!-- Tool Specific Content Container -->
-            <div id="toolSpecificContent" class="mb-6">
-                <!-- Dynamic layout for TRANSLATE, CODE_REVIEW, CHAT, or FORM_BASED_Q_A will be loaded here -->
+            <div id="loadingIndicator" class="hidden text-center p-4 bg-yellow-100 border border-yellow-300 text-yellow-800 rounded-lg mb-4">
+                <i class="fas fa-spinner fa-spin mr-2"></i> පිළිතුර සකස් කරමින් පවතී...
             </div>
 
-            <div class="flex justify-end items-center mt-6 pt-4 border-t border-gray-200">
-                <button id="processBtn" class="modal-process-btn flex items-center" onclick="processAI()">
-                    <i id="spinner" class="fas fa-spinner fa-spin hidden"></i>
-                    <span id="processBtnText">ක්‍රියාත්මක කරන්න</span>
-                </button>
-                <button class="bg-gray-300 text-gray-700 p-2 rounded-lg hover:bg-gray-400 ml-4" onclick="document.getElementById('aiToolModal').style.display='none'">
-                    වසා දමන්න
+            <!-- Input Area -->
+            <div class="mb-6">
+                <label for="userInput" id="inputLabel" class="block text-gray-700 font-semibold mb-2">ඔබගේ විමසුම (Input):</label>
+                <textarea id="userInput" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 shadow-inner" placeholder="මෙහි ඔබගේ විමසුම ඇතුලත් කරන්න..."></textarea>
+                <button id="submitBtn" class="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 disabled:opacity-50" onclick="processAIRequest()">
+                    <i class="fas fa-paper-plane mr-2"></i> ඉදිරිපත් කරන්න
                 </button>
             </div>
+
+            <!-- Output Area -->
+            <div class="mt-6 border-t pt-4">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center"><i class="fas fa-robot mr-2 text-blue-500"></i> AI පිළිතුර / ප්‍රතිඵලය</h3>
+                <!-- General Output Area (for Text, Code, Image) -->
+                <div id="aiOutput" class="p-4 bg-gray-50 border border-gray-200 rounded-lg whitespace-pre-wrap min-h-[100px] text-gray-700 flex justify-center items-center overflow-auto">
+                    <p class="text-gray-500">පිළිතුර මෙහි දිස්වනු ඇත.</p>
+                </div>
+                <!-- Chat specific output area (for the Chat Assistant tool) -->
+                <div id="aiChatOutput" class="hidden h-[300px] overflow-y-auto p-4 bg-white border border-gray-300 rounded-lg flex flex-col space-y-3">
+                    <!-- Chat messages will be appended here -->
+                </div>
+            </div>
             
-            <h4 class="text-lg font-semibold mt-6 mb-2 text-blue-700">ප්‍රතිඵල:</h4>
-            <div id="aiOutput" class="p-4 bg-gray-50 border border-gray-200 rounded-lg whitespace-pre-wrap min-h-[50px]">
-                <p class="text-gray-500">ප්‍රතිඵල මෙහි දිස්වනු ඇත.</p>
+            <!-- Citation Sources Area (Hidden for now as none of the requested tools require Google Search grounding) -->
+            <div id="citationSources" class="mt-4 hidden p-3 bg-indigo-50 border border-indigo-200 rounded-lg text-sm text-indigo-700">
+                <h4 class="font-semibold mb-1">මූලාශ්‍ර (Sources):</h4>
+                <ul id="sourceList" class="list-disc pl-5 space-y-1">
+                    <!-- Sources will be appended here -->
+                </ul>
             </div>
         </div>
     </div>
+
 
     <script>
-        // Global Gemini API and Environment Setup
-        const API_KEY = "AIzaSyBEU0WHjihBjMIdiOXT7PgnLU_IuEMKj84";
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEY}`;
-        
+        // --- Global Setup ---
+        // API_KEY is intentionally left blank for the environment to inject it.
+        const API_KEY = "AIzaSyBEU0WHjihBjMIdiOXT7PgnLU_IuEMKj84"; 
+        // Base URL for text models
+        const GEMINI_TEXT_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
+        // Base URL for the image-enabled flash model 
+        const GEMINI_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent";
+
+        // AI මෙවලම් 8 හි දත්ත
+        const aiTools = [
+            { id: 'chatAssistant', name: 'සාමාන්‍ය කතාබස් ✨', icon: 'fas fa-comments', type: 'CHAT', model: 'gemini-2.5-flash', systemPrompt: 'Act as a friendly, helpful, and culturally aware conversational assistant for A/L students. Respond primarily in Sinhala unless the user switches language.' },
+            { id: 'translator', name: 'භාෂා පරිවර්තක ✨', icon: 'fas fa-language', type: 'TEXT', model: 'gemini-2.5-flash', systemPrompt: 'Act as a professional and accurate translator. Translate the user-provided text into the target language specified in the prompt. Ensure Sinhala to English translations are precise for technical terms.' },
+            { id: 'summarizer', name: 'සාරාංශකරණ මෙවලම ✨', icon: 'fas fa-file-alt', type: 'TEXT', model: 'gemini-2.5-flash', systemPrompt: 'Act as a professional summarizer. Condense the provided text into a concise, well-structured summary of approximately 100 words. Respond in Sinhala.' },
+            { id: 'essayWriter', name: 'රචනා ලේඛක ✨', icon: 'fas fa-pen-nib', type: 'TEXT', model: 'gemini-2.5-flash', systemPrompt: 'Act as an academic essay writer for a high school level. Write a structured, engaging essay (introduction, body, conclusion) on the user\'s topic. Respond in Sinhala unless the prompt specifies another language.' },
+            { id: 'codeReviewer', name: 'කේත විචාරක ✨', icon: 'fas fa-bug', type: 'TEXT', model: 'gemini-2.5-flash', systemPrompt: 'Act as a rigorous software engineer. Review the provided code snippet, identifying potential bugs, suggesting improvements for efficiency and readability, and explaining the logic. Respond in Sinhala.' },
+            { id: 'imageGenerator', name: 'රූප ජනකය ✨', icon: 'fas fa-palette', type: 'IMAGE_GEN', model: 'gemini-2.5-flash-image-preview', systemPrompt: 'Generate a highly detailed and imaginative image based on the user\'s creative prompt.' }, 
+            { id: 'grammarChecker', name: 'ව්‍යාකරණ පරීක්ෂක ✨', icon: 'fas fa-check-double', type: 'TEXT', model: 'gemini-2.5-flash', systemPrompt: 'Act as a meticulous grammar and style checker. Correct any grammatical errors and suggest stylistic improvements for the text provided by the user. Output the corrected text followed by a brief explanation of the changes. Respond in Sinhala.' },
+            { id: 'brainstormer', name: 'අදහස් උත්පාදක ✨', icon: 'fas fa-lightbulb', type: 'TEXT', model: 'gemini-2.5-flash', systemPrompt: 'Act as an innovative brainstorming partner. Generate 5 unique, diverse, and practical ideas or concepts related to the user prompt, presenting them as a numbered list. Respond in Sinhala.' },
+        ];
+
         let currentTool = null;
-        let isProcessing = false;
-
-        // --------------------------------------------------------
-        // AI TOOLS ARRAY - All 100 tools are defined and assigned a functional type
-        // --------------------------------------------------------
-        // Types: TRANSLATE, CHAT, CODE_REVIEW, FORM_BASED_Q_A
-        const AI_TOOLS = [
-            // TRANSLATE
-            { id: 'tool_1', name: 'පරිවර්තකය (Translator)', icon: 'fas fa-language', type: 'TRANSLATE', prompt: 'පහත පාඨය තෝරාගත් භාෂා අතර නිවැරදිව පරිවර්තනය කරන්න:' },
-            { id: 'tool_8', name: 'ව්‍යාකරණ පරීක්ෂක', icon: 'fas fa-spell-check', type: 'TRANSLATE', prompt: 'සපයන ලද පාඨයේ ව්‍යාකරණ හා අක්ෂර වින්‍යාස දෝෂ නිවැරදි කර, නිවැරදි කළ පාඨය පමණක් ලබා දෙන්න.' },
-            { id: 'tool_20', name: 'තාක්ෂණික පාරිභාෂිතය', icon: 'fas fa-info-circle', type: 'TRANSLATE', prompt: 'ඕනෑම තාක්ෂණික හෝ විද්‍යාත්මක පදයක නිවැරදි සිංහල තේරුම සහ පැහැදිලි කිරීම ලබා දෙන්න.' },
-            { id: 'tool_26', name: 'උපකරණ ක්‍රියාකාරීත්වය', icon: 'fas fa-wrench', type: 'TRANSLATE', prompt: 'විවිධ විද්‍යාගාර හෝ කාර්මික උපකරණවල ක්‍රියාකාරීත්වය පියවරෙන් පියවර විස්තර කරන්න.' },
-            { id: 'tool_30', name: 'දෙමළ-සිංහල පරිවර්තනය', icon: 'fas fa-exchange-alt', type: 'TRANSLATE', prompt: 'දෙමළ පාඨයක් සරල සිංහලට පරිවර්තනය කරන්න:' },
-            { id: 'tool_38', name: 'පාඨ සංස්කරණය', icon: 'fas fa-magic', type: 'TRANSLATE', prompt: 'සපයන ලද පාඨය වඩාත් වෘත්තීයමය/ශාස්ත්‍රීය ආකාරයකට සංස්කරණය කර නැවත ලියන්න.' },
-            { id: 'tool_44', name: 'ඉංග්‍රීසි-සිංහල වේගවත් පරිවර්තනය', icon: 'fas fa-closed-captioning', type: 'TRANSLATE', prompt: 'ඉංග්‍රීසි පාඨය සරල, ස්වභාවික සිංහල භාෂාවට ක්ෂණිකව පරිවර්තනය කරන්න:' },
-            { id: 'tool_51', name: 'පරිවර්තන සත්‍යාපනය', icon: 'fas fa-clipboard-check', type: 'TRANSLATE', prompt: 'සපයන ලද පරිවර්තනයක් නිවැරදිදැයි පරීක්ෂා කර අඩුපාඩු වෙත යොමු කරන්න:' },
-            { id: 'tool_57', name: 'භාෂා උච්චාරණ මාර්ගෝපදේශ', icon: 'fas fa-volume-up', type: 'TRANSLATE', prompt: 'සපයන ලද වචනයක හෝ වාක්‍යයක නිවැරදි ඉංග්‍රීසි උච්චාරණය (Phonetic spelling) ලබා දෙන්න.' },
-            { id: 'tool_62', name: 'ජාත්‍යන්තර නීති පරිවර්තනය', icon: 'fas fa-gavel', type: 'TRANSLATE', prompt: 'සංකීර්ණ නීතිමය පාඨ සරල භාෂාවකට පරිවර්තනය කරන්න:' },
-            { id: 'tool_69', name: 'නාට්‍ය/තිර රචනා පරිවර්තනය', icon: 'fas fa-theater-masks', type: 'TRANSLATE', prompt: 'නාට්‍යමය සංවාදවල ශෛලිය රඳවා ගනිමින් පරිවර්තනය කරන්න:' },
-            { id: 'tool_75', name: 'දේශීය භාෂා පරිවර්තනය', icon: 'fas fa-dharmachakra', type: 'TRANSLATE', prompt: 'දේශීය වචන සහ වාක්‍ය ඛණ්ඩ සඳහා වඩාත් සුදුසු ඉංග්‍රීසි/දෙමළ වචන යෝජනා කරන්න:' },
-            { id: 'tool_83', name: 'තාක්ෂණික ලිපි පරිවර්තනය', icon: 'fas fa-scroll', type: 'TRANSLATE', prompt: 'විද්‍යාත්මක හා තාක්ෂණික ලිපිවල සංකීර්ණ පද නිවැරදිව පරිවර්තනය කරන්න:' },
-            { id: 'tool_86', name: 'අක්ෂර හඳුනාගැනීම (OCR)', icon: 'fas fa-sort-alpha-up', type: 'TRANSLATE', prompt: 'රූපවල ඇති පෙළ හඳුනාගෙන, එය සරල පාඨයක් බවට පරිවර්තනය කරන්න:' },
-            { id: 'tool_90', name: 'ගීත/කවි පරිවර්තනය', icon: 'fas fa-microphone', type: 'TRANSLATE', prompt: 'ගීතයක හෝ කවියක කලාත්මක බව රඳවා ගනිමින් පරිවර්තනය කරන්න:' },
-            { id: 'tool_97', name: 'සංස්කෘතික පාඨ පරිවර්තනය', icon: 'fas fa-mask', type: 'TRANSLATE', prompt: 'සංස්කෘතික සන්දර්භය රඳවා ගනිමින් පාඨ පරිවර්තනය කරන්න:' },
-
-            // CODE_REVIEW
-            { id: 'tool_3', name: 'කේත විචාරකය (Code Review)', icon: 'fas fa-code', type: 'CODE_REVIEW', prompt: 'සපයන ලද කේතය විචාරණය කර, දෝෂ නිරාකරණය කර, වඩා හොඳ ආකාරය යෝජනා කරන්න:' },
-            { id: 'tool_10', name: 'ඇල්ගොරිතම නිර්මාතෘ', icon: 'fas fa-brain', type: 'CODE_REVIEW', prompt: 'සපයා ඇති ගැටලුවට වඩාත් සුදුසු ඇල්ගොරිතම සහ එහි pseudo-code එක සකස් කරන්න.' },
-            { id: 'tool_15', name: 'දත්ත සැකසුම් කේතය', icon: 'fas fa-database', type: 'CODE_REVIEW', prompt: 'සපයන ලද අවශ්‍යතා සඳහා (උදා: CSV ගොනුවක් කියවීම) Python කේතයක් ජනනය කරන්න.' },
-            { id: 'tool_18', name: 'වෙබ් නිර්මාණ සහාය', icon: 'fas fa-globe', type: 'CODE_REVIEW', prompt: 'HTML, CSS හෝ JavaScript පිළිබඳ සපයන ලද කොටසක් සමාලෝචනය කර, හොඳම ක්‍රමවේදයන් යෝජනා කරන්න.' },
-            { id: 'tool_21', name: 'සංකීර්ණ කේත සරල කිරීම', icon: 'fas fa-retweet', type: 'CODE_REVIEW', prompt: 'සපයන ලද සංකීර්ණ කේත කොටස එහි ක්‍රියාකාරිත්වය නොවෙනස්ව තබාගෙන, වඩා සරල හා කියවිය හැකි කේතයක් බවට පත් කරන්න.' },
-            { id: 'tool_28', name: 'මෘදුකාංග ගෘහ නිර්මාණ ශිල්පය', icon: 'fas fa-sitemap', type: 'CODE_REVIEW', prompt: 'සපයන ලද මෘදුකාංග ව්‍යාපෘතියක් සඳහා සුදුසු ගෘහ නිර්මාණ රටා (architectural patterns) යෝජනා කරන්න.' },
-            { id: 'tool_32', name: 'ක්‍රමලේඛන අභියෝග', icon: 'fas fa-gamepad', type: 'CODE_REVIEW', prompt: 'සපයා ඇති ගැටලුව සඳහා කේත ලිවීමේ අභියෝගයක් (coding challenge) සකස් කරන්න.' },
-            { id: 'tool_36', name: 'යුනිට් ටෙස්ට් ලේඛනය', icon: 'fas fa-flask-vial', type: 'CODE_REVIEW', prompt: 'සපයන ලද කේත කොටස සඳහා Unit Test ලිවීමට උදවු කරන්න.' },
-            { id: 'tool_40', name: 'Data Structures පැහැදිලි කිරීම', icon: 'fas fa-cubes', type: 'CODE_REVIEW', prompt: 'සපයන ලද Data Structure එකක් ක්‍රියාත්මක කරන ආකාරය සඳහා උදාහරණ කේතයක් (Python) ලබා දෙන්න.' },
-            { id: 'tool_46', name: 'කේත සම්මත පරීක්ෂාව', icon: 'fas fa-check-double', type: 'CODE_REVIEW', prompt: 'සපයන ලද කේතය හොඳම කේතකරණ සම්මතයන් (coding standards) අනුව තිබේදැයි පරීක්ෂා කරන්න.' },
-            { id: 'tool_49', name: 'දත්ත සමුදා විමසුම්', icon: 'fas fa-server', type: 'CODE_REVIEW', prompt: 'සපයන ලද අවශ්‍යතාව සඳහා PostgreSQL හෝ MySQL විමසුම් (queries) ජනනය කරන්න.' },
-            { id: 'tool_54', name: 'API ලේඛන සහාය', icon: 'fas fa-file-code', type: 'CODE_REVIEW', prompt: 'සපයන ලද කේතය සඳහා Swagger/OpenAPI ලේඛන සටහන් ජනනය කරන්න.' },
-            { id: 'tool_56', name: 'ප්‍රතික්‍රියාශීලී කේතය', icon: 'fas fa-layer-group', type: 'CODE_REVIEW', prompt: 'සපයන ලද අවශ්‍යතාව සඳහා React/Vue/Angular සංරචක කේතයක් ජනනය කරන්න.' },
-            { id: 'tool_63', name: 'කේතය පිළිබඳ ප්‍රශ්න', icon: 'fas fa-puzzle-piece', type: 'CODE_REVIEW', prompt: 'සපයන ලද කේතය පිළිබඳ ඔබට ඇති ඕනෑම ප්‍රශ්නයකට පිළිතුරු දෙන්න.' },
-            { id: 'tool_68', name: 'කේතය විග්‍රහ කිරීම', icon: 'fas fa-microchip', type: 'CODE_REVIEW', prompt: 'සපයන ලද කේතයේ සෑම පේළියකම සිදු වන්නේ කුමක්දැයි සවිස්තරාත්මකව විග්‍රහ කරන්න.' },
-            { id: 'tool_72', name: 'දත්ත ගබඩා සැලසුම්කරණය', icon: 'fas fa-table', type: 'CODE_REVIEW', prompt: 'සපයන ලද අවශ්‍යතා සඳහා දත්ත සමුදා වගු (Database Tables) සැලසුම් කිරීමට උදවු කරන්න.' },
-            { id: 'tool_76', name: 'කේත කාර්යක්ෂමතාව', icon: 'fas fa-arrow-up', type: 'CODE_REVIEW', prompt: 'සපයන ලද කේතය වඩාත් කාර්යක්ෂම (efficient) කිරීමට වැඩි දියුණු කිරීම් යෝජනා කරන්න.' },
-            { id: 'tool_79', name: 'පුනරාවර්තන කේතය', icon: 'fas fa-redo-alt', type: 'CODE_REVIEW', prompt: 'පුනරාවර්තන (recursive) ශ්‍රිතයක් ලිවීමට උදවු කරන්න.' },
-            { id: 'tool_84', name: 'කේත සම්ප්‍රදායන්', icon: 'fas fa-code-branch', type: 'CODE_REVIEW', prompt: 'සපයන ලද ක්‍රමලේඛන භාෂාවක (උදා: Java) ඇති හොඳම සම්ප්‍රදායන් (best practices) පැහැදිලි කරන්න.' },
-            { id: 'tool_88', name: 'වැඩසටහන් ප්‍රවාහය', icon: 'fas fa-stream', type: 'CODE_REVIEW', prompt: 'සපයන ලද කේතයේ ක්‍රියාත්මක කිරීමේ ප්‍රවාහය (execution flow) විස්තර කරන්න.' },
-            { id: 'tool_93', name: 'දෝෂ කේත විශ්ලේෂණය', icon: 'fas fa-times-circle', type: 'CODE_REVIEW', prompt: 'සපයන ලද දෝෂ කේතය (Error Code) විස්තර කර එය නිවැරදි කරන්නේ කෙසේදැයි පියවර දෙන්න.' },
-            { id: 'tool_98', name: 'නවීන කේත ප්‍රශස්තිකරණය', icon: 'fas fa-chart-area', type: 'CODE_REVIEW', prompt: 'සපයන ලද කේතය සඳහා මතක භාවිතය සහ වේගය ප්‍රශස්ත කිරීමට යෝජනා දෙන්න.' },
-
-            // FORM_BASED_Q_A
-            { id: 'tool_9', name: 'ප්‍රශ්න පත්‍ර සාදන්නා', icon: 'fas fa-question-circle', type: 'FORM_BASED_Q_A', prompt: 'සපයන ලද විෂය කොටස සඳහා විවිධ මට්ටම්වල ප්‍රශ්න ජනනය කරන්න.' },
-            { id: 'tool_33', name: 'ව්‍යාපාරික අදහස් ජනනය', icon: 'fas fa-handshake', type: 'FORM_BASED_Q_A', prompt: 'තාක්ෂණය මත පදනම් වූ ව්‍යාපාරික අදහස් ජනනය කරන්න.' },
-            { id: 'tool_55', name: 'අභ්‍යාස පත්‍රිකා සාදන්නා (Quiz)', icon: 'fas fa-terminal', type: 'FORM_BASED_Q_A', prompt: 'සපයන ලද පාඩම මත පදනම්ව බහුවරණ ප්‍රශ්න (පිළිතුරු සමග) ජනනය කරන්න.' },
-            { id: 'tool_78', name: 'වෘත්තීය මාර්ගෝපදේශය', icon: 'fas fa-user-tie', type: 'FORM_BASED_Q_A', prompt: 'සපයන ලද තාක්ෂණික ක්ෂේත්‍රයක් සඳහා අදාළ රැකියා සහ වෘත්තීය මාර්ග පිළිබඳ තොරතුරු දෙන්න.' },
-
-            // CHAT (The remaining 64 tools are CHAT-based for general Q&A)
-            { id: 'tool_2', name: 'සංවාද සහායක (Chatbot)', icon: 'fas fa-comments', type: 'CHAT', prompt: 'ඔබේ ප්‍රශ්නයට පිළිතුරු සපයන මිත්‍රශීලී අධ්‍යාපනික සහායකයෙකු ලෙස ක්‍රියා කරන්න:' },
-            { id: 'tool_4', name: 'ගණිත ගැටළු විසඳීම', icon: 'fas fa-calculator', type: 'CHAT', prompt: 'ඕනෑම විද්‍යාත්මක හෝ ගණිතමය ගැටලුවක් සඳහා පියවරෙන් පියවර විසඳුම් ලබා දෙන්න.' },
-            { id: 'tool_5', name: 'විද්‍යා සූත්‍ර නිශ්චය', icon: 'fas fa-atom', type: 'CHAT', prompt: 'විද්‍යාත්මක සංකල්ප පැහැදිලි කිරීමට සහ සූත්‍ර නිවැරදිව ලබා දීමට කටයුතු කරන්න.' },
-            { id: 'tool_6', name: 'දීර්ඝ පාඨ සාරාංශකරණය', icon: 'fas fa-file-alt', type: 'CHAT', prompt: 'සපයන ලද දිගු පාඨයෙහි ඇති වැදගත්ම කරුණු පමණක් භාවිතා කරමින් සාරාංශයක් නිර්මාණය කරන්න.' },
-            { id: 'tool_7', name: 'රචනා සහායක', icon: 'fas fa-pencil-alt', type: 'CHAT', prompt: 'සපයන ලද මාතෘකාවට අදාළව නිබන්ධන/රචනා ලිවීම සඳහා අන්තර්ගතය සහ ව්‍යුහය යෝජනා කරන්න.' },
-            { id: 'tool_11', name: 'පරිගණක ජාල උපදේශක', icon: 'fas fa-network-wired', type: 'CHAT', prompt: 'පරිගණක ජාලකරණය පිළිබඳ සංකීර්ණ ප්‍රශ්නවලට සරල පිළිතුරු ලබා දෙන්න.' },
-            { id: 'tool_12', name: 'ඉතිහාස කාල නිර්ණකය', icon: 'fas fa-history', type: 'CHAT', prompt: 'ලෝක ඉතිහාසයේ හෝ ශ්‍රී ලංකාවේ ඉතිහාසයේ ඕනෑම සිදුවීමක කාල නිර්ණය සකස් කරන්න.' },
-            { id: 'tool_13', name: 'රසායනික ප්‍රතික්‍රියා විස්තරය', icon: 'fas fa-vial', type: 'CHAT', prompt: 'සපයන ලද රසායනික ප්‍රතික්‍රියාව සම්පූර්ණ කර, එය සිදුවන ආකාරය පියවරෙන් පියවර පැහැදිලි කරන්න.' },
-            { id: 'tool_14', name: 'ඉගෙනුම් සැලසුම්කරු', icon: 'fas fa-calendar-alt', type: 'CHAT', prompt: 'සපයන ලද විෂය නිර්දේශයක් සතිපතා ඉගෙනීම සඳහා කාලසටහනක් සකස් කරන්න.' },
-            { id: 'tool_16', name: 'භෞතික විද්‍යා ගැටළු', icon: 'fas fa-rocket', type: 'CHAT', prompt: 'සපයන ලද භෞතික විද්‍යා ගැටලුව විශ්ලේෂණය කර, අදාළ සූත්‍ර භාවිතා කරමින් විසඳුම දෙන්න.' },
-            { id: 'tool_17', name: 'ප්‍රස්ථාර ජනනය (විස්තරය)', icon: 'fas fa-chart-bar', type: 'CHAT', prompt: 'සපයන ලද දත්ත කට්ටලයක් විස්තර කර එයට සුදුසු ප්‍රස්ථාර වර්ගය කුමක්දැයි පැහැදිලි කරන්න.' },
-            { id: 'tool_19', name: 'විෂය පථ පරීක්ෂක', icon: 'fas fa-book', type: 'CHAT', prompt: 'සපයන ලද පාඩම් මාතෘකාවට අදාළව පූර්ව දැනුම සහ ඊළඟට ඉගෙනගත යුතු දේ නිර්දේශ කරන්න.' },
-            { id: 'tool_22', name: 'AI ආකෘති විස්තරය', icon: 'fas fa-cogs', type: 'CHAT', prompt: 'විවිධ AI සහ Machine Learning ආකෘති (models) ක්‍රියා කරන ආකාරය සරලව පැහැදිලි කරන්න.' },
-            { id: 'tool_23', name: 'පරිසර විද්‍යා විශ්ලේෂණය', icon: 'fas fa-leaf', type: 'CHAT', prompt: 'පරිසර විද්‍යා සංකල්ප සහ දත්ත විශ්ලේෂණය සඳහා සහාය වන්න.' },
-            { id: 'tool_24', name: 'කාර්ය සාධන විචාරය', icon: 'fas fa-tachometer-alt', type: 'CHAT', prompt: 'ව්‍යාපෘති කාර්ය සාධන දත්ත මත පදනම්ව විචාරයක් සහ වැඩිදියුණු කිරීමේ යෝජනා ලබා දෙන්න.' },
-            { id: 'tool_25', name: 'වාර්තා පත්‍රිකා සහාය', icon: 'fas fa-clipboard', type: 'CHAT', prompt: 'විද්‍යාත්මක වාර්තා පත්‍රිකා ලිවීම සඳහා ව්‍යුහය සහ අන්තර්ගතය යෝජනා කරන්න.' },
-            { id: 'tool_27', name: 'මූලික රෝග විනිශ්චය (අධ්‍යාපනික)', icon: 'fas fa-stethoscope', type: 'CHAT', prompt: 'සපයන ලද රෝග ලක්ෂණ (අධ්‍යාපනික අරමුණු සඳහා පමණක්) මත පදනම්ව විය හැකි හේතු ලැයිස්තුගත කරන්න.' },
-            { id: 'tool_29', name: 'අභ්‍යවකාශ විද්‍යාව', icon: 'fas fa-space-shuttle', type: 'CHAT', prompt: 'අභ්‍යවකාශ විද්‍යාව පිළිබඳ ප්‍රශ්නවලට නවතම තොරතුරු ඇතුළත් කරමින් පිළිතුරු සපයන්න.' },
-            { id: 'tool_31', name: 'ජීව විද්‍යා සංකල්ප', icon: 'fas fa-dna', type: 'CHAT', prompt: 'සංකීර්ණ ජීව විද්‍යාත්මක ක්‍රියාවලීන් සහ සංකල්ප පැහැදිලි කරන්න.' },
-            { id: 'tool_34', name: 'තාක්ෂණික ප්‍රවෘත්ති සාරාංශය', icon: 'fas fa-newspaper', type: 'CHAT', prompt: 'නවතම තාක්ෂණික ප්‍රවෘත්තිවල සාරාංශයක් ලබා දෙන්න.' },
-            { id: 'tool_35', name: 'පොත්පත් නිර්දේශය', icon: 'fas fa-book-reader', type: 'CHAT', prompt: 'සපයන ලද විෂය ක්ෂේත්‍රය පිළිබඳ කියවිය යුතු පොත් 3ක් නිර්දේශ කරන්න.' },
-            { id: 'tool_37', name: 'මානව සම්පත් කළමනාකරණය', icon: 'fas fa-users', type: 'CHAT', prompt: 'මානව සම්පත් කළමනාකරණය පිළිබඳ අධ්‍යාපනික ප්‍රශ්නවලට පිළිතුරු දෙන්න.' },
-            { id: 'tool_39', name: 'විද්‍යුත් පරිපථ විශ්ලේෂණය', icon: 'fas fa-bolt', type: 'CHAT', prompt: 'සපයන ලද සරල විද්‍යුත් පරිපථයක් විශ්ලේෂණය කර එහි ක්‍රියාකාරීත්වය පැහැදිලි කරන්න.' },
-            { id: 'tool_41', name: 'අවදානම් විශ්ලේෂණය', icon: 'fas fa-exclamation-triangle', type: 'CHAT', prompt: 'ව්‍යාපෘති අවදානම් හඳුනාගෙන ඒවා අවම කිරීමට ක්‍රම යෝජනා කරන්න.' },
-            { id: 'tool_42', name: 'සමාජ විද්‍යා ගැටළු', icon: 'fas fa-people-carry', type: 'CHAT', prompt: 'සමාජ විද්‍යාත්මක සංකල්ප සහ සිද්ධාන්ත පැහැදිලි කරන්න.' },
-            { id: 'tool_43', name: 'දේශන සටහන් සකස් කිරීම', icon: 'fas fa-sticky-note', type: 'CHAT', prompt: 'සපයන ලද මාතෘකාවක් සඳහා දේශනයක් සකස් කිරීමට මූලික සටහන් ලබා දෙන්න.' },
-            { id: 'tool_45', name: 'තාක්ෂණික පිරිවිතරයන්', icon: 'fas fa-file-contract', type: 'CHAT', prompt: 'නිෂ්පාදනයක් සඳහා තාක්ෂණික පිරිවිතර (technical specifications) සකස් කිරීමට උදවු කරන්න.' },
-            { id: 'tool_47', name: 'භූගෝලීය තොරතුරු', icon: 'fas fa-map-marked-alt', type: 'CHAT', prompt: 'ඕනෑම භූගෝලීය කලාපයක් හෝ සංසිද්ධියක් පිළිබඳ විස්තර ලබා දෙන්න.' },
-            { id: 'tool_48', name: 'නව නිපැයුම් අදහස්', icon: 'fas fa-lightbulb', type: 'CHAT', prompt: 'දැනට පවතින ගැටලුවක් සඳහා නව නිපැයුම් අදහස් 3ක් යෝජනා කරන්න.' },
-            { id: 'tool_50', name: 'සාහිත්‍ය කෘති විශ්ලේෂණය', icon: 'fas fa-book-open', type: 'CHAT', prompt: 'ඕනෑම සාහිත්‍ය කෘතියක් පිළිබඳ විචාරයක් හෝ විශ්ලේෂණයක් සපයන්න.' },
-            { id: 'tool_52', name: 'ප්‍රතිපෝෂණ විශ්ලේෂණය', icon: 'fas fa-poll', type: 'CHAT', prompt: 'පරිශීලක ප්‍රතිපෝෂණ (User Feedback) සාරාංශගත කර ප්‍රධාන කරුණු හඳුනා ගන්න.' },
-            { id: 'tool_53', name: 'සයිබර් ආරක්ෂාව', icon: 'fas fa-shield-alt', type: 'CHAT', prompt: 'සයිබර් ආරක්ෂාව පිළිබඳ සංකල්ප සහ ආරක්ෂණ ක්‍රම පැහැදිලි කරන්න.' },
-            { id: 'tool_58', name: 'සායනික දත්ත විශ්ලේෂණය', icon: 'fas fa-heartbeat', type: 'CHAT', prompt: 'සායනික දත්ත කට්ටලයක් විශ්ලේෂණය කර ප්‍රවණතා වාර්තා කරන්න.' },
-            { id: 'tool_59', name: 'තාප ගති විද්‍යාව', icon: 'fas fa-fire', type: 'CHAT', prompt: 'තාප ගති විද්‍යාවේ (Thermodynamics) මූලධර්ම සහ නීති පැහැදිලි කරන්න.' },
-            { id: 'tool_60', name: 'උපදේශක AI', icon: 'fas fa-chalkboard-teacher', type: 'CHAT', prompt: 'යම් විෂයයක ගුරුවරයෙකු ලෙස ක්‍රියා කර ගැඹුරු දැනුමක් ලබා දෙන්න.' },
-            { id: 'tool_61', name: 'කාලගුණ අනාවැකි විස්තරය', icon: 'fas fa-cloud-sun', type: 'CHAT', prompt: 'කාලගුණ අනාවැකි ලබා දෙන AI ආකෘති ක්‍රියා කරන ආකාරය පැහැදිලි කරන්න.' },
-            { id: 'tool_64', name: 'සෞඛ්‍ය තොරතුරු', icon: 'fas fa-medkit', type: 'CHAT', prompt: 'මූලික සෞඛ්‍ය සහ පෝෂණ තොරතුරු පිළිබඳ ප්‍රශ්නවලට පිළිතුරු දෙන්න (අධ්‍යාපනික අරමුණු සඳහා).' },
-            { id: 'tool_65', name: 'ගැටළු විසඳීමේ ක්‍රම', icon: 'fas fa-lightbulb-on', type: 'CHAT', prompt: 'සපයන ලද ගැටලුව විසඳීම සඳහා පියවර 5ක ක්‍රමවේදයක් (Problem Solving Methodology) යෝජනා කරන්න.' },
-            { id: 'tool_66', name: 'අංක ගණිත පදනම', icon: 'fas fa-hashtag', type: 'CHAT', prompt: 'අංක ගණිතයේ මූලික සංකල්ප සරලව පැහැදිලි කරන්න.' },
-            { id: 'tool_67', name: 'විෂයමාලා සැලසුම්කරණය', icon: 'fas fa-clipboard-list', type: 'CHAT', prompt: 'නව විෂයමාලාවක් සඳහා මාසික සැලැස්මක් (Monthly Syllabus) සකස් කිරීමට උදවු කරන්න.' },
-            { id: 'tool_70', name: 'ගුණාත්මක විශ්ලේෂණය', icon: 'fas fa-star', type: 'CHAT', prompt: 'නිෂ්පාදන හෝ සේවාවන්හි ගුණාත්මකභාවය විශ්ලේෂණය කිරීමට උදවු කරන්න.' },
-            { id: 'tool_71', name: 'කාර්මික චිත්‍ර ඇඳීම', icon: 'fas fa-ruler-combined', type: 'CHAT', prompt: 'මූලික කාර්මික චිත්‍ර ඇඳීමේ සංකල්ප පැහැදිලි කරන්න.' },
-            { id: 'tool_73', name: 'සාමාන්‍ය දැනුම පරීක්ෂණය', icon: 'fas fa-book-mark', type: 'CHAT', prompt: 'සපයන ලද මාතෘකාවට අදාළව සාමාන්‍ය දැනුම ප්‍රශ්න 5ක් ජනනය කරන්න.' },
-            { id: 'tool_74', name: 'භූමිකම්පා අනාවැකි', icon: 'fas fa-house-damage', type: 'CHAT', prompt: 'භූමිකම්පා අනාවැකි කීමේ තාක්ෂණය සහ එහි සීමාවන් පැහැදිලි කරන්න.' },
-            { id: 'tool_77', name: 'මූල්‍ය ගණනය කිරීම්', icon: 'fas fa-money-bill-wave', type: 'CHAT', prompt: 'සරල මූල්‍ය ගණනය කිරීම් (පොලිය, ණය) සඳහා උදවු කරන්න.' },
-            { id: 'tool_80', name: 'තාක්ෂණික ගැටළු විසඳීම', icon: 'fas fa-headset', type: 'CHAT', prompt: 'පරිගණක හෝ මෘදුකාංග ගැටලුවක් සඳහා (Troubleshoot) පියවරෙන් පියවර උපදෙස් දෙන්න.' },
-            { id: 'tool_81', name: 'පරිසර දූෂණ විශ්ලේෂණය', icon: 'fas fa-smog', type: 'CHAT', prompt: 'පරිසර දූෂණය පිළිබඳ දත්ත විශ්ලේෂණය කිරීමට උදවු කරන්න.' },
-            { id: 'tool_82', name: 'ප්‍රතිපත්ති විශ්ලේෂණය', icon: 'fas fa-balance-scale', type: 'CHAT', prompt: 'අධ්‍යාපනික ප්‍රතිපත්ති පිළිබඳ විචාරයක් හෝ සාරාංශයක් ලබා දෙන්න.' },
-            { id: 'tool_85', name: 'සෞරග්‍රහ මණ්ඩල තොරතුරු', icon: 'fas fa-globe-asia', type: 'CHAT', prompt: 'සෞරග්‍රහ මණ්ඩලයේ ග්‍රහලෝක පිළිබඳ තොරතුරු ලබා දෙන්න.' },
-            { id: 'tool_87', name: 'ගුරු උපදේශක', icon: 'fas fa-user-graduate', type: 'CHAT', prompt: 'ගුරු වෘත්තියට අදාළ ප්‍රශ්න සහ ඉගැන්වීමේ ක්‍රම පිළිබඳ උපදෙස් දෙන්න.' },
-            { id: 'tool_89', name: 'ජනගහන දත්ත විශ්ලේෂණය', icon: 'fas fa-chart-pie', type: 'CHAT', prompt: 'ජනගහන දත්ත විශ්ලේෂණය කර ප්‍රධාන ජන විද්‍යාත්මක ප්‍රවණතා වාර්තා කරන්න.' },
-            { id: 'tool_91', name: 'ආර්ථික විද්‍යා ආකෘති', icon: 'fas fa-dollar-sign', type: 'CHAT', prompt: 'ආර්ථික විද්‍යාත්මක ආකෘති සහ සිද්ධාන්ත පැහැදිලි කරන්න.' },
-            { id: 'tool_92', name: 'විද්‍යුත් තැපැල් සහායක', icon: 'fas fa-envelope', type: 'CHAT', prompt: 'නිශ්චිත අරමුණක් සඳහා වෘත්තීය විද්‍යුත් තැපෑලක කෙටුම්පතක් සකස් කරන්න.' },
-            { id: 'tool_94', name: 'ක්‍රීඩා සංවර්ධන අදහස්', icon: 'fas fa-gamepad-alt', type: 'CHAT', prompt: 'සපයන ලද සංකල්පය මත පදනම්ව ක්‍රීඩාවක් (Game) සංවර්ධනය කිරීමට අදහස් යෝජනා කරන්න.' },
-            { id: 'tool_95', name: 'තාක්ෂණික සම්මුඛ සාකච්ඡා', icon: 'fas fa-comments', type: 'CHAT', prompt: 'සපයන ලද රැකියා තනතුරක් සඳහා නිතර අසන සම්මුඛ සාකච්ඡා ප්‍රශ්න 5ක් සකස් කරන්න.' },
-            { id: 'tool_96', name: 'ජාත්‍යන්තර සබඳතා', icon: 'fas fa-earth-americas', type: 'CHAT', prompt: 'ලෝක දේශපාලනය සහ ජාත්‍යන්තර සබඳතා පිළිබඳ තොරතුරු ලබා දෙන්න.' },
-            { id: 'tool_99', name: 'අනාගත තාක්ෂණ පුරෝකථනය', icon: 'fas fa-hourglass-half', type: 'CHAT', prompt: 'සපයන ලද තාක්ෂණ ක්ෂේත්‍රයේ (උදා: Quantum Computing) අනාගත ප්‍රවණතා පුරෝකථනය කරන්න.' },
-            { id: 'tool_100', name: 'සම්පූර්ණ පාඩම් සැලැස්ම', icon: 'fas fa-book-medical', type: 'CHAT', prompt: 'සපයන ලද පාඩම් මාතෘකාවක් සඳහා ඉලක්ක, අන්තර්ගතය සහ තක්සේරු කිරීම් සහිත සම්පූර්ණ පාඩම් සැලැස්මක් සකස් කරන්න.' }
-        ];
-
-        // Supported languages for the TRANSLATE tool
-        const LANGUAGES = [
-            { code: 'si', name: 'සිංහල (Sinhala)' },
-            { code: 'en', name: 'ඉංග්‍රීසි (English)' },
-            { code: 'ta', name: 'දෙමළ (Tamil)' },
-            { code: 'hi', name: 'හින්දි (Hindi)' },
-            { code: 'fr', name: 'ප්‍රංශ (French)' },
-            { code: 'de', name: 'ජර්මන් (German)' },
-            { code: 'ja', name: 'ජපන් (Japanese)' },
-            { code: 'ru', name: 'රුසියානු (Russian)' },
-            { code: 'es', name: 'ස්පාඤ්ඤ (Spanish)' },
-        ];
+        let chatHistory = [];
+        let isLoading = false;
 
 
-        // --------------------------------------------------------
-        // TEMPLATES FOR DYNAMIC MODAL LAYOUTS
-        // --------------------------------------------------------
+        // --- Utility Functions ---
 
-        const TEMPLATES = {
-            TRANSLATE: () => `
-                <div class="space-y-4">
-                    <p class="text-gray-600 font-medium">පරිවර්තනය සඳහා මූලාශ්‍ර සහ ඉලක්ක භාෂාව තෝරා පාඨය ඇතුලත් කරන්න.</p>
-                    <div class="flex items-center space-x-4">
-                        <div class="flex-1">
-                            <label for="sourceLang" class="block text-sm font-medium text-gray-700">මූලාශ්‍ර භාෂාව (Source):</label>
-                            <select id="sourceLang" class="mt-1 p-2 border border-gray-300 rounded-lg w-full focus:ring-blue-500 focus:border-blue-500">
-                                ${LANGUAGES.map(lang => 
-                                    `<option value="${lang.code}" ${lang.code === 'si' ? 'selected' : ''}>${lang.name}</option>`
-                                ).join('')}
-                            </select>
-                        </div>
-                        <button id="swapBtn" onclick="swapLanguages()" class="p-2 mt-5 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition duration-150" title="භාෂා මාරු කරන්න">
-                            <i class="fas fa-exchange-alt"></i>
-                        </button>
-                        <div class="flex-1">
-                            <label for="targetLang" class="block text-sm font-medium text-gray-700">ඉලක්ක භාෂාව (Target):</label>
-                            <select id="targetLang" class="mt-1 p-2 border border-gray-300 rounded-lg w-full focus:ring-blue-500 focus:border-blue-500">
-                                ${LANGUAGES.map(lang => 
-                                    `<option value="${lang.code}" ${lang.code === 'en' ? 'selected' : ''}>${lang.name}</option>`
-                                ).join('')}
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="translate-grid mt-4">
-                        <div>
-                            <label for="input-text" class="block text-sm font-medium text-gray-700">මූලාශ්‍ර පාඨය:</label>
-                            <textarea id="input-text" class="w-full p-3 border border-gray-300 rounded-lg resize-y min-h-[120px] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="පරිවර්තනය කිරීමට අවශ්‍ය පාඨය මෙහි ඇතුලත් කරන්න."></textarea>
-                        </div>
-                        <div>
-                            <label for="output-text" class="block text-sm font-medium text-gray-700">පරිවර්තිත ප්‍රතිඵලය:</label>
-                            <textarea id="output-text" class="w-full p-3 border border-gray-200 bg-gray-100 rounded-lg resize-y min-h-[120px]" placeholder="ප්‍රතිඵලය මෙහි දිස්වනු ඇත." readonly></textarea>
-                        </div>
-                    </div>
-                </div>
-            `,
-            CODE_REVIEW: (toolPrompt) => `
-                <div class="space-y-4">
-                    <p class="text-gray-400 text-sm italic bg-gray-800 p-2 rounded-md">${toolPrompt}</p>
-                    <label for="code-input" class="block text-lg font-medium text-blue-800">කේතය ඇතුලත් කරන්න:</label>
-                    <textarea id="code-input" class="code-input-area w-full p-4 border rounded-lg resize-y min-h-[250px] text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Python, JavaScript, C++ හෝ වෙනත් කේතය මෙහි ඇතුලත් කරන්න..."></textarea>
-                    <div class="mt-4">
-                        <label class="block text-lg font-medium text-blue-800">විචාරණ ප්‍රතිඵල:</label>
-                        <div id="review-output" class="code-output-area mt-1 p-4 rounded-lg min-h-[50px] text-sm">ප්‍රතිඵල මෙහි දිස්වනු ඇත.</div>
-                    </div>
-                </div>
-            `,
-            FORM_BASED_Q_A: (toolName) => {
-                let specificFields = '';
-                let placeholderText = '';
-                let promptFieldName = 'මාතෘකාව/විෂය කොටස';
-
-                switch(toolName) {
-                    case 'ප්‍රශ්න පත්‍ර සාදන්නා':
-                    case 'අභ්‍යාස පත්‍රිකා සාදන්නා (Quiz)':
-                        specificFields = `
-                            <div class="flex space-x-4">
-                                <div class="w-1/2">
-                                    <label for="qa-count" class="block text-sm font-medium text-gray-700">ප්‍රශ්න ගණන:</label>
-                                    <input type="number" id="qa-count" value="5" min="1" max="20" class="mt-1 p-2 border border-gray-300 rounded-lg w-full focus:ring-blue-500 focus:border-blue-500">
-                                </div>
-                                <div class="w-1/2">
-                                    <label for="qa-level" class="block text-sm font-medium text-gray-700">දුෂ්කරතා මට්ටම:</label>
-                                    <select id="qa-level" class="mt-1 p-2 border border-gray-300 rounded-lg w-full focus:ring-blue-500 focus:border-blue-500">
-                                        <option value="Basic">මූලික (Basic)</option>
-                                        <option value="Intermediate" selected>මධ්‍යම (Intermediate)</option>
-                                        <option value="Advanced">උසස් (Advanced)</option>
-                                    </select>
-                                </div>
-                            </div>
-                        `;
-                        placeholderText = "උදා: 'ද්විමය සංඛ්‍යා පද්ධති' හෝ 'අධිගමන සිද්ධාන්ත'.";
-                        break;
-
-                    case 'ව්‍යාපාරික අදහස් ජනනය':
-                        specificFields = `
-                            <div class="flex space-x-4">
-                                <div class="w-1/2">
-                                    <label for="qa-industry" class="block text-sm font-medium text-gray-700">කර්මාන්තය:</label>
-                                    <input type="text" id="qa-industry" placeholder="උදා: කෘෂිකර්මය, Fintech" class="mt-1 p-2 border border-gray-300 rounded-lg w-full focus:ring-blue-500 focus:border-blue-500">
-                                </div>
-                                <div class="w-1/2">
-                                    <label for="qa-audience" class="block text-sm font-medium text-gray-700">ඉලක්කගත ප්‍රේක්ෂකයන්:</label>
-                                    <input type="text" id="qa-audience" placeholder="උදා: කුඩා ව්‍යාපාර, සිසුන්" class="mt-1 p-2 border border-gray-300 rounded-lg w-full focus:ring-blue-500 focus:border-blue-500">
-                                </div>
-                            </div>
-                        `;
-                        promptFieldName = 'ප්‍රධාන ගැටලුව/නවතම තාක්ෂණය';
-                        placeholderText = "උදා: ශ්‍රී ලංකාවේ ප්‍රවාහන ගැටලුව හෝ Blockchain තාක්ෂණය.";
-                        break;
-
-                    case 'වෘත්තීය මාර්ගෝපදේශය':
-                        specificFields = `
-                            <div class="flex space-x-4">
-                                <div class="w-full">
-                                    <label for="qa-field" class="block text-sm font-medium text-gray-700">ක්ෂේත්‍රය:</label>
-                                    <input type="text" id="qa-field" placeholder="උදා: Software Engineering, Biomedical Science" class="mt-1 p-2 border border-gray-300 rounded-lg w-full focus:ring-blue-500 focus:border-blue-500">
-                                </div>
-                            </div>
-                        `;
-                        promptFieldName = 'අත්දැකීම් මට්ටම';
-                        placeholderText = "උදා: පාසල් සිසුවෙක්, විශ්වවිද්‍යාල ශිෂ්‍යයෙක්, අවුරුදු 5ක පළපුරුද්ද.";
-                        break;
-                }
-                
-                return `
-                    <div class="space-y-4 p-4 bg-yellow-50 border-yellow-300 border-2 rounded-lg">
-                        <p class="text-sm text-gray-700 font-semibold">${toolName} සඳහා අවශ්‍ය ව්‍යුහගත දත්ත ඇතුලත් කරන්න:</p>
-                        
-                        ${specificFields}
-
-                        <div>
-                            <label for="form-input-text" class="block text-sm font-medium text-gray-700">${promptFieldName}:</label>
-                            <textarea id="form-input-text" class="w-full p-3 border border-gray-300 rounded-lg resize-y min-h-[80px] focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="${placeholderText}"></textarea>
-                        </div>
-                    </div>
-                `;
-            },
-            CHAT: (toolPrompt) => `
-                <div class="space-y-4">
-                    <p class="text-lg font-medium text-gray-600 border-b pb-2 mb-2">${toolPrompt}</p>
-                    <label for="chat-input-text" class="block text-sm font-medium text-gray-700">ඔබේ ප්‍රශ්නය/පාඨය:</label>
-                    <textarea id="chat-input-text" class="w-full p-3 border border-gray-300 rounded-lg resize-y min-h-[150px] focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="මෙහි ඔබේ ප්‍රශ්නය, පාඨය හෝ ඉල්ලීම ඇතුලත් කරන්න..."></textarea>
-                </div>
-            `
-        };
-
-
-        // --------------------------------------------------------
-        // TOOL RENDERING AND MODAL LOGIC
-        // --------------------------------------------------------
-
-        function renderAITools() {
-            const grid = document.getElementById('aiFeatureGrid');
-            grid.innerHTML = AI_TOOLS.map(tool => `
-                <button class="ai-tool-btn" onclick="openAIModal('${tool.id}')">
-                    <i class="${tool.icon}"></i>
-                    ${tool.name}
-                </button>
-            `).join('');
-        }
-
-        function openAIModal(toolId) {
-            const modal = document.getElementById('aiToolModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const toolSpecificContent = document.getElementById('toolSpecificContent');
-            const aiOutput = document.getElementById('aiOutput');
-            
-            currentTool = AI_TOOLS.find(t => t.id === toolId);
-
-            if (!currentTool) return;
-
-            // Resetting modal elements
-            aiOutput.innerHTML = '<p class="text-gray-500">ප්‍රතිඵල මෙහි දිස්වනු ඇත.</p>';
-            modalTitle.textContent = currentTool.name;
-
-            // Load the correct dynamic template based on the tool type
-            let templateHTML = '';
-
-            switch (currentTool.type) {
-                case 'TRANSLATE':
-                    templateHTML = TEMPLATES.TRANSLATE();
-                    break;
-                case 'CODE_REVIEW':
-                    templateHTML = TEMPLATES.CODE_REVIEW(currentTool.prompt);
-                    break;
-                case 'FORM_BASED_Q_A':
-                    templateHTML = TEMPLATES.FORM_BASED_Q_A(currentTool.name);
-                    break;
-                case 'CHAT':
-                default:
-                    templateHTML = TEMPLATES.CHAT(currentTool.prompt);
-                    break;
-            }
-
-            toolSpecificContent.innerHTML = templateHTML;
-            modal.style.display = 'block';
-        }
-
-        // Specific function for TRANSLATE tool to swap languages
-        function swapLanguages() {
-            const sourceSelect = document.getElementById('sourceLang');
-            const targetSelect = document.getElementById('targetLang');
-            const temp = sourceSelect.value;
-            sourceSelect.value = targetSelect.value;
-            targetSelect.value = temp;
-        }
-        
-        // Expose swapLanguages to the global scope for the button click
-        window.swapLanguages = swapLanguages;
-
-        // --------------------------------------------------------
-        // GEMINI API COMMUNICATION AND LOGIC
-        // --------------------------------------------------------
-
-        function setLoading(loading) {
-            isProcessing = loading;
-            const spinner = document.getElementById('spinner');
-            const btnText = document.getElementById('processBtnText');
-            const btn = document.getElementById('processBtn');
-
-            if (loading) {
-                spinner.classList.remove('hidden');
-                btnText.textContent = 'ක්‍රියාත්මක වෙමින්...';
-                btn.disabled = true;
-                btn.classList.add('opacity-50', 'cursor-not-allowed');
+        function setLoading(state) {
+            isLoading = state;
+            const indicator = document.getElementById('loadingIndicator');
+            const button = document.getElementById('submitBtn');
+            if (state) {
+                indicator.classList.remove('hidden');
+                button.disabled = true;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> සකසමින්...';
             } else {
-                spinner.classList.add('hidden');
-                btnText.textContent = 'ක්‍රියාත්මක කරන්න';
-                btn.disabled = false;
-                btn.classList.remove('opacity-50', 'cursor-not-allowed');
+                indicator.classList.add('hidden');
+                button.disabled = false;
+                button.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> ඉදිරිපත් කරන්න';
             }
         }
 
-        async function fetchWithRetry(url, payload, maxRetries = 5) {
+        function displayError(message, targetOutput) {
+            // Ensure targetOutput is the correct DOM element based on context
+            let outputElement = targetOutput;
+            if (typeof targetOutput === 'string' && targetOutput === 'chat') {
+                outputElement = document.getElementById('aiChatOutput');
+                outputElement.innerHTML += `<div class="chat-message ai-message mt-2"><p class="font-bold text-red-600">දෝෂය: ${message}.</p></div>`;
+                outputElement.scrollTop = outputElement.scrollHeight;
+            } else {
+                outputElement.innerHTML = `<p class="font-bold text-red-600 p-2 bg-red-100 rounded-lg">API දෝෂයක්: ${message}. කරුණාකර පසුව නැවත උත්සාහ කරන්න.</p>`;
+            }
+        }
+
+        // --- API Calls ---
+
+        async function callApi(url, payload) {
+            const maxRetries = 3;
+            let delay = 1000;
+
             for (let i = 0; i < maxRetries; i++) {
                 try {
-                    const response = await fetch(url, {
+                    const response = await fetch(`${url}?key=${API_KEY}`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
 
-                    if (response.status === 429 && i < maxRetries - 1) {
-                        const delay = Math.pow(2, i) * 1000 + (Math.random() * 1000);
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                        continue;
-                    }
-
                     if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        const errorBody = await response.json();
+                        // Provide a more Sinhala-friendly error message
+                        const errorMessage = errorBody.error?.message.includes('API Key') 
+                            ? 'API යතුරේ දෝෂයක් හෝ සේවාව ලබාගත නොහැක.' 
+                            : errorBody.error?.message || 'හඳුනා නොගත් දෝෂයක්.';
+                        throw new Error(`HTTP Error ${response.status}: ${errorMessage}`);
                     }
 
-                    return await response.json();
+                    const result = await response.json();
+                    return result;
 
                 } catch (error) {
                     if (i === maxRetries - 1) {
-                        throw new Error(`සියලු උත්සාහයන් අසාර්ථක විය: ${error.message}`);
+                        throw error; // Throw on final attempt
                     }
-                    const delay = Math.pow(2, i) * 1000 + (Math.random() * 1000);
+                    // console.warn(`Retry attempt ${i + 1} failed. Retrying in ${delay / 1000}s...`);
                     await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2; // Exponential backoff
                 }
             }
         }
 
-        // Main function to process the AI request
-        async function processAI() {
-            if (isProcessing || !currentTool) return;
 
+        async function processAIRequest() {
+            if (isLoading || !currentTool) return;
+
+            const userInput = document.getElementById('userInput').value.trim();
             const aiOutput = document.getElementById('aiOutput');
-            let systemPrompt = currentTool.prompt;
-            let finalUserQuery = '';
-            let isQueryValid = true;
-
-            // --- Determine Query and Validate Input based on Tool Type ---
-
-            if (currentTool.type === 'TRANSLATE') {
-                const sourceLangCode = document.getElementById('sourceLang').value;
-                const targetLangCode = document.getElementById('targetLang').value;
-                const inputText = document.getElementById('input-text').value.trim();
-                const outputTextarea = document.getElementById('output-text');
-                outputTextarea.value = ''; // Clear previous output in the dedicated box
-
-                if (!inputText) {
-                    isQueryValid = false;
-                    aiOutput.innerHTML = '<p class="text-red-500 font-bold">පරිවර්තනය සඳහා කරුණාකර මූලාශ්‍ර පාඨය ඇතුළත් කරන්න.</p>';
-                } else {
-                    const sourceLangName = LANGUAGES.find(l => l.code === sourceLangCode).name;
-                    const targetLangName = LANGUAGES.find(l => l.code === targetLangCode).name;
-
-                    // For the TRANSLATE tool, we use the specific template and then copy the result
-                    systemPrompt = `You are a professional translator and editor. Translate the following text exactly from ${sourceLangName} (code: ${sourceLangCode}) to ${targetLangName} (code: ${targetLangCode}). Provide ONLY the translated text without any explanation or commentary.`;
-                    finalUserQuery = `Translate the following text based on the instructions: "${inputText}"`;
-                }
-
-            } else if (currentTool.type === 'CODE_REVIEW') {
-                const codeInput = document.getElementById('code-input').value.trim();
-                const reviewOutput = document.getElementById('review-output');
-                reviewOutput.innerHTML = 'ප්‍රතිඵල මෙහි දිස්වනු ඇත.'; // Clear dedicated output
-
-                if (!codeInput) {
-                    isQueryValid = false;
-                    aiOutput.innerHTML = '<p class="text-red-500 font-bold">කේත විචාරය සඳහා කරුණාකර කේතය ඇතුළත් කරන්න.</p>';
-                } else {
-                    systemPrompt = 'Act as an expert software engineer. Review the provided code, identify bugs, suggest performance and style improvements, and explain your reasoning in detail using Sinhala. Use Markdown code blocks where appropriate.';
-                    finalUserQuery = `Tool: ${currentTool.name}. Instruction: ${currentTool.prompt}. Code: \n\n${codeInput}`;
-                }
-
-            } else if (currentTool.type === 'FORM_BASED_Q_A') {
-                const primaryInput = document.getElementById('form-input-text').value.trim();
-                let structuredData = '';
-                
-                if (currentTool.name === 'ප්‍රශ්න පත්‍ර සාදන්නා' || currentTool.name === 'අභ්‍යාස පත්‍රිකා සාදන්නා (Quiz)') {
-                    const count = document.getElementById('qa-count').value;
-                    const level = document.getElementById('qa-level').value;
-                    structuredData = `ප්‍රශ්න ගණන: ${count}, දුෂ්කරතා මට්ටම: ${level}.`;
-                    
-                } else if (currentTool.name === 'ව්‍යාපාරික අදහස් ජනනය') {
-                    const industry = document.getElementById('qa-industry').value.trim();
-                    const audience = document.getElementById('qa-audience').value.trim();
-                    structuredData = `කර්මාන්තය: ${industry}, ඉලක්කගත ප්‍රේක්ෂකයන්: ${audience}.`;
-                    
-                } else if (currentTool.name === 'වෘත්තීය මාර්ගෝපදේශය') {
-                    const field = document.getElementById('qa-field').value.trim();
-                    structuredData = `ක්ෂේත්‍රය: ${field}.`;
-                }
-
-                if (!primaryInput) {
-                    isQueryValid = false;
-                    aiOutput.innerHTML = '<p class="text-red-500 font-bold">ආකෘති පදනම් වූ මෙවලම් සඳහා අවශ්‍ය සියලු දත්ත ඇතුළත් කරන්න.</p>';
-                } else {
-                    systemPrompt = `You are an expert ${currentTool.name} assistant. Generate a high-quality, detailed response based on the structured data provided. Respond entirely in Sinhala.`;
-                    finalUserQuery = `Tool: ${currentTool.name}. Instruction: ${currentTool.prompt}. Structured Data: ${structuredData}. Primary Input: ${primaryInput}`;
-                }
-
-            } else if (currentTool.type === 'CHAT') {
-                const chatInput = document.getElementById('chat-input-text').value.trim();
-
-                if (!chatInput) {
-                    isQueryValid = false;
-                    aiOutput.innerHTML = '<p class="text-red-500 font-bold">සංවාදය සඳහා කරුණාකර යමක් ඇතුළත් කරන්න.</p>';
-                } else {
-                    systemPrompt = `You are an expert ${currentTool.name} assistant. Fulfill the request based on the system prompt: "${currentTool.prompt}". Respond professionally and accurately, using Sinhala.`;
-                    finalUserQuery = chatInput;
-                }
+            const aiChatOutput = document.getElementById('aiChatOutput');
+            const citationSources = document.getElementById('citationSources');
+            citationSources.classList.add('hidden');
+            aiOutput.classList.remove('bg-red-50', 'bg-blue-50');
+            aiOutput.classList.add('bg-gray-50');
+            
+            
+            if (userInput === '') {
+                aiOutput.innerHTML = `<p class="text-red-600">කරුණාකර යමක් ඇතුළත් කරන්න.</p>`;
+                return;
             }
 
-
-            if (!isQueryValid) return;
-
-            // --- API Call Execution ---
             setLoading(true);
-            aiOutput.innerHTML = '<p class="text-gray-500"><i class="fas fa-spinner fa-spin mr-2"></i>AI ප්‍රතිචාරය ජනනය වෙමින් පවතී...</p>';
-
-            const payload = {
-                contents: [{ parts: [{ text: finalUserQuery }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] },
-                // Enable Google Search Grounding for CHAT and CODE_REVIEW type tasks
-                tools: (currentTool.type !== 'TRANSLATE') ? [{ "google_search": {} }] : undefined,
-            };
 
             try {
-                const result = await fetchWithRetry(API_URL, payload);
-                let generatedText = result.candidates?.[0]?.content?.parts?.[0]?.text || 'ප්‍රතිඵල ජනනය කිරීමේ දෝෂයක්. කරුණාකර නැවත උත්සාහ කරන්න.';
-                
-                // Display the result in the appropriate location
-                if (currentTool.type === 'TRANSLATE') {
-                    // Update the dedicated output textarea
-                    document.getElementById('output-text').value = generatedText;
-                    aiOutput.innerHTML = '<p class="text-green-600 font-bold">පරිවර්තනය සාර්ථකයි. ප්‍රතිඵලය ඉලක්ක පාඨ කොටුවෙන් බලන්න.</p>';
-                } else if (currentTool.type === 'CODE_REVIEW') {
-                    // Update the dedicated code review output div
-                    document.getElementById('review-output').innerHTML = generatedText.replace(/\n/g, '<br>');
-                    aiOutput.innerHTML = '<p class="text-green-600 font-bold">විචාරණය සාර්ථකයි. ප්‍රතිඵලය ඉහළ කොටුවෙන් බලන්න.</p>';
+                if (currentTool.type === 'IMAGE_GEN') {
+                    // --- Image Generation Flow (gemini-2.5-flash-image-preview) ---
+                    aiOutput.classList.remove('p-4'); 
+                    aiOutput.classList.add('p-0');
+                    aiOutput.innerHTML = `<div class="p-4 text-center"><i class="fas fa-spinner fa-spin mr-2"></i> රූපය සකස් කරමින් පවතී...</div>`;
+
+                    const payload = {
+                        contents: [{
+                            parts: [{ text: userInput }]
+                        }],
+                        generationConfig: {
+                            responseModalities: ['TEXT', 'IMAGE']
+                        },
+                    };
+
+                    // Use the dedicated image API URL
+                    const result = await callApi(GEMINI_IMAGE_API_URL, payload); 
+                    
+                    const base64Data = result?.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
+
+                    if (!base64Data) {
+                        throw new Error('රූපයක් ජනනය කිරීමට නොහැකි විය. විමසුම පැහැදිලිදැයි පරීක්ෂා කරන්න.');
+                    }
+
+                    const imageUrl = `data:image/png;base64,${base64Data}`;
+                    
+                    // Display image
+                    aiOutput.innerHTML = `<img src="${imageUrl}" alt="Generated Image" class="max-w-full h-auto rounded-lg shadow-xl mx-auto" style="max-height: 400px; object-fit: contain;">`;
+
                 } else {
-                    // Update the general output div for CHAT/FORM_BASED_Q_A
-                    aiOutput.innerHTML = generatedText.replace(/\n/g, '<br>');
+                    // --- Text Generation Flow (Gemini) ---
+                    aiOutput.classList.remove('p-0');
+                    aiOutput.classList.add('p-4');
+
+                    let payload = {};
+                    
+                    if (currentTool.type === 'CHAT') {
+                        // For CHAT, update history and display temporary message
+                        chatHistory.push({ role: 'user', parts: [{ text: userInput }] });
+                        payload.contents = chatHistory;
+                        
+                        // Display user message and temp AI message
+                        aiChatOutput.innerHTML += `<div class="chat-message user-message mt-2">${userInput}</div>`;
+                        aiChatOutput.innerHTML += `<div id="temp-response" class="chat-message ai-message mt-2 flex items-center"><i class="fas fa-spinner fa-spin mr-2"></i> AI පිළිතුරු දෙමින්...</div>`;
+                        aiChatOutput.scrollTop = aiChatOutput.scrollHeight;
+                        document.getElementById('userInput').value = ''; // Clear input immediately
+                    } else {
+                        // For non-chat TEXT types
+                        payload.contents = [{ parts: [{ text: userInput }] }];
+                        // Add system instruction
+                        payload.systemInstruction = { parts: [{ text: currentTool.systemPrompt }] };
+                        
+                        // Display temporary message for non-chat
+                        aiOutput.innerHTML = `<div class="text-center text-gray-500"><i class="fas fa-spinner fa-spin mr-2"></i> පිළිතුර සකස් කරමින් පවතී...</div>`;
+                    }
+
+
+                    // Use the dedicated text API URL
+                    const result = await callApi(GEMINI_TEXT_API_URL, payload);
+                    const candidate = result.candidates?.[0];
+
+                    if (!candidate || !candidate.content?.parts?.[0]?.text) {
+                        throw new Error('පිළිතුරක් ජනනය කිරීමට නොහැකි විය. නැවත උත්සාහ කරන්න.');
+                    }
+
+                    const text = candidate.content.parts[0].text;
+
+                    // Handle Output Display
+                    if (currentTool.type === 'CHAT') {
+                        // Remove temporary message and append final response
+                        const tempResponse = document.getElementById('temp-response');
+                        if (tempResponse) {
+                            tempResponse.remove();
+                        }
+                        aiChatOutput.innerHTML += `<div class="chat-message ai-message mt-2">${text}</div>`;
+                        aiChatOutput.scrollTop = aiChatOutput.scrollHeight;
+                        
+                        // Update chat history with the model's response
+                        chatHistory.push({ role: 'model', parts: [{ text: text }] });
+                        
+                        // Clear input only after successful chat response
+                        document.getElementById('userInput').value = ''; 
+
+                    } else if (currentTool.id === 'codeReviewer') {
+                        // For code review, use a <pre> block
+                        aiOutput.innerHTML = `<pre class="overflow-x-auto p-4 bg-gray-800 text-green-300 rounded-lg whitespace-pre-wrap">${text}</pre>`;
+                    } else {
+                        // For all other TEXT, display the text in the main output area
+                        // Reset output area if it contained a loading message
+                        aiOutput.innerHTML = ''; 
+                        aiOutput.innerHTML = text.replace(/\n/g, '<br>'); // Preserve line breaks
+                    }
                 }
 
             } catch (error) {
-                console.error("Gemini API Error:", error);
-                aiOutput.innerHTML = `<p class="text-red-600 font-bold">API දෝෂයක්: ${error.message}. කරුණාකර පසුව නැවත උත්සාහ කරන්න.</p>`;
+                console.error("API Error:", error);
+                // Clear the main output area's loading state before displaying error
+                aiOutput.innerHTML = '';
+                
+                const errorMessage = error.message.includes('API Key') 
+                    ? 'API යතුරේ දෝෂයක් හෝ සේවාව ලබාගත නොහැක.' 
+                    : error.message;
+
+                // Handle error message display based on tool type
+                if (currentTool.type === 'CHAT') {
+                    const tempResponse = document.getElementById('temp-response');
+                    if (tempResponse) tempResponse.remove();
+                    displayError(`සම්බන්ධතා දෝෂය: ${errorMessage}`, 'chat');
+                } else {
+                    displayError(`සම්බන්ධතා දෝෂය: ${errorMessage}`, aiOutput);
+                }
+                
             } finally {
                 setLoading(false);
             }
         }
 
-        // Initialize rendering when the page loads
-        window.onload = function() {
-            renderAITools();
-        };
+        // --- UI Rendering and Setup ---
 
+        function openAIModal(tool) {
+            currentTool = tool;
+            document.getElementById('modalTitle').textContent = tool.name;
+            document.getElementById('aiToolModal').style.display = 'flex';
+            document.getElementById('aiToolModal').style.justifyContent = 'center';
+            document.getElementById('aiToolModal').style.alignItems = 'flex-start';
+
+
+            const aiOutput = document.getElementById('aiOutput');
+            const aiChatOutput = document.getElementById('aiChatOutput');
+            const citationSources = document.getElementById('citationSources');
+            const userInput = document.getElementById('userInput');
+            
+            // Reset UI elements
+            aiOutput.innerHTML = '<p class="text-gray-500">පිළිතුර මෙහි දිස්වනු ඇත.</p>';
+            aiOutput.classList.remove('hidden', 'p-0');
+            aiOutput.classList.add('p-4', 'bg-gray-50');
+            aiChatOutput.classList.add('hidden');
+            citationSources.classList.add('hidden');
+            userInput.value = '';
+
+            // Handle Chat specific setup
+            if (tool.type === 'CHAT') {
+                aiOutput.classList.add('hidden');
+                aiChatOutput.classList.remove('hidden');
+                aiChatOutput.innerHTML = '<div class="chat-message ai-message">ආයුබෝවන්! මම ඔබට උදව් කිරීමට සූදානම්.</div>';
+                chatHistory = [{ role: 'model', parts: [{ text: "ආයුබෝවන්! මම ඔබට උදව් කිරීමට සූදානම්." }] }]; // Initialize chat history
+                document.getElementById('inputLabel').textContent = 'ඔබගේ පණිවිඩය (Message):';
+            } else {
+                aiOutput.classList.remove('hidden');
+                aiChatOutput.classList.add('hidden');
+                document.getElementById('inputLabel').textContent = 'ඔබගේ විමසුම (Input):';
+            }
+            
+            // Set input placeholder text based on tool
+            if (tool.id === 'imageGenerator') {
+                userInput.placeholder = 'උදා: රන් වරල් සහිත මකරෙක් සඳ මත පියාසර කරන ආකාරය. (විස්තරාත්මකව ඉංග්‍රීසියෙන් දෙන්න)';
+            } else if (tool.id === 'codeReviewer') {
+                userInput.placeholder = 'සමාලෝචනය සඳහා කේත කොටස මෙහි අලවන්න... (උදා: function sum(a,b){return a+b})';
+            } else if (tool.id === 'translator') {
+                userInput.placeholder = 'පරිවර්තනය කිරීමට අවශ්‍ය පෙළ සහ ඉලක්ක භාෂාව ඇතුළත් කරන්න. (උදා: How are you? to Sinhala)';
+            } else if (tool.id === 'summarizer') {
+                userInput.placeholder = 'සාරාංශ කිරීමට අවශ්‍ය විශාල පෙළ කොටස මෙහි ඇතුළත් කරන්න.';
+            } else if (tool.id === 'essayWriter') {
+                userInput.placeholder = 'උදා: ඉංජිනේරු තාක්ෂණවේදය සිංහලෙන් පිළිබඳ වචන 300ක රචනාවක් ලියන්න.';
+            } else if (tool.id === 'grammarChecker') {
+                userInput.placeholder = 'ව්‍යාකරණ පරීක්ෂා කිරීමට අවශ්‍ය පෙළ කොටස මෙහි ඇතුළත් කරන්න.';
+            } else if (tool.id === 'brainstormer') {
+                userInput.placeholder = 'උදා: මෘදුකාංග තාක්ෂණවේදී ව්‍යාපෘති සඳහා නව අදහස් පහක් දෙන්න.';
+            } else {
+                userInput.placeholder = 'මෙහි ඔබගේ විමසුම ඇතුලත් කරන්න...';
+            }
+            
+            userInput.focus();
+        }
+
+        function renderAITools() {
+            const container = document.getElementById('aiToolButtons');
+            container.innerHTML = ''; // Clear existing content
+            aiTools.forEach(tool => {
+                const buttonHtml = `
+                    <button 
+                        class="ai-tool-btn flex flex-col items-center justify-center p-3 sm:p-4 bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg hover:border-blue-500 transition duration-300 text-gray-700 hover:text-blue-600 active:bg-gray-100"
+                        onclick="openAIModal(aiTools.find(t => t.id === '${tool.id}'))"
+                    >
+                        <i class="${tool.icon} text-2xl sm:text-3xl mb-1 sm:mb-2"></i>
+                        <span class="font-semibold text-center text-xs sm:text-sm">${tool.name}</span>
+                    </button>
+                `;
+                container.innerHTML += buttonHtml;
+            });
+        }
+
+        // --- Event Handlers (Original and New) ---
+
+        // Original searchFiles function (kept for completeness)
+        function searchFiles() {
+            const query = document.getElementById('searchInput').value;
+            if (query) {
+                // In a real application, this would redirect or filter files
+                console.log("Searching for:", query);
+                // Placeholder for real search logic
+                document.getElementById('searchInput').value = '';
+            }
+        }
+        
         // Close modal when user clicks outside of it
         window.onclick = function(event) {
             const modal = document.getElementById('aiToolModal');
@@ -823,6 +733,34 @@
                 modal.style.display = "none";
             }
         }
+        
+        // Prevent submission on Enter key press in textarea unless it's a chat
+        document.getElementById('userInput').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' && !event.shiftKey && currentTool && currentTool.type === 'CHAT') {
+                event.preventDefault(); // Prevent new line
+                processAIRequest();
+            } else if (event.key === 'Enter' && !event.shiftKey && currentTool && currentTool.type !== 'CHAT') {
+                event.preventDefault(); // Prevent form submission
+                // allow Shift + Enter for new lines in non-chat tools
+            }
+        });
+
+
+        // Initialize rendering when the page loads
+        window.onload = function() {
+            // Render the AI tool buttons
+            renderAITools();
+            
+            // Original subject card animation effect (kept for completeness)
+            document.querySelectorAll('.subject-card').forEach((card, index) => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.opacity = 1;
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        };
     </script>
 </body>
 </html>
